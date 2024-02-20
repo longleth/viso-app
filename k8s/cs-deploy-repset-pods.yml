@@ -1,0 +1,32 @@
+#########################################################
+#                Config Service Application             #
+# Deployments, Replica Sets and Pods on K8S environment #
+#########################################################
+
+apiVersion:                   apps/v1
+kind:                         Deployment
+
+metadata:
+  name:                       viso-configserver-deploy-pod
+
+spec:
+  selector:
+    matchLabels:
+      # Replica Set
+      app:                    viso-configserver-pod
+
+  replicas:                   2
+
+  # auto-generated pods using pod definition in this template
+  template:
+    metadata:
+      labels:
+        # auto-generated pods names
+        app:                  viso-configserver-pod
+
+    spec:
+      containers:
+        - name:               viso-configserver
+          image:              longlethanh/viso-configserver:0.0.1-SNAPSHOT
+          ports:
+            - containerPort:  8888

@@ -1,0 +1,15 @@
+#############################
+# VISO configuration server #
+#       Prometheus          #
+#############################
+
+scrape_configs:
+  - job_name: "prometheus"
+    scrape_interval: 10s
+    static_configs:
+      - targets: ["localhost:9090"]
+  - job_name: "config-server"
+    scrape_interval: 10s
+    metrics_path: "/actuator/prometheus"
+    static_configs:
+      - targets: ["localhost:8888"]

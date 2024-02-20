@@ -1,0 +1,20 @@
+
+test:
+  remote:
+    config:
+      property: HELLO WALLET SERVICE
+
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: public
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/viso_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
